@@ -4,7 +4,7 @@ import BackToTop from "./backToTop";
 export default function Home() {
   return (
     <>
-      <main className="">
+      <main className="home">
         <HomePage />
         <BackToTop />
       </main>
