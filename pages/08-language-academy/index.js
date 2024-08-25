@@ -7,21 +7,21 @@ import Context from "@/context/Context";
 import MobileMenu from "@/components/Header/MobileMenu";
 import Cart from "@/components/Header/Offcanvas/Cart";
 
-import LanguageAcademy from "@/components/08-language-academy/LanguageAcademy";
+import HomePageContent from "@/components/08-language-academy/LanguageAcademy";
 import HeaderStyleEight from "@/components/Header/HeaderStyle-Eight";
 import FooterOne from "@/components/Footer/Footer-One";
 
-const LanguageAcademyPage = () => {
+const HomePage = () => {
   return (
     <>
-      <PageHead title="Language Academy - Online Courses & Education NEXTJS14 Template" />
+      <PageHead title="UGChub - Elevate Your Brand with Top UGC Creators" />
       <Provider store={Store}>
         <Context>
           <MobileMenu />
           <HeaderStyleEight headerSticky="rbt-sticky" />
           <Cart />
 
-          <LanguageAcademy />
+          <HomePageContent />
 
           <BackToTop />
           <FooterOne />
@@ -31,4 +31,4 @@ const LanguageAcademyPage = () => {
   );
 };
 
-export default LanguageAcademyPage;
+export default HomePage;
