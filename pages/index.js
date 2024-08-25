@@ -1,5 +1,4 @@
-import BackToTop from "./backToTop";
-import HomePage from "./08-language-academy";
+import HomePage from "./UGC/Home";
 
 export default function Home() {
   return (
