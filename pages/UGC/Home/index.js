@@ -8,22 +8,22 @@ import MobileMenu from "@/components/Header/MobileMenu";
 import Cart from "@/components/Header/Offcanvas/Cart";
 
 import HomePageContent from "@/components/UGC/HomePageContent";
-import HeaderStyleEight from "@/components/Header/HeaderStyle-Eight";
 import FooterOne from "@/components/Footer/Footer-One";
+import HeaderStyleNine from "@/components/Header/HeaderStyle-Nine";
+import Separator from "@/components/Common/Separator";
 
 const HomePage = () => {
   return (
     <>
-      <PageHead title="Connect with Top UGC Creators and Elevate Your Brand" />
+      <PageHead title="Home Classic Lms - Online Courses & Education NEXTJS14 Template" />
       <Provider store={Store}>
         <Context>
           <MobileMenu />
-          <HeaderStyleEight headerSticky="rbt-sticky" />
-          <Cart />
-
+          <HeaderStyleNine headerType="" />
           <HomePageContent />
-
+          <Cart />
           <BackToTop />
+          <Separator />
           <FooterOne />
         </Context>
       </Provider>

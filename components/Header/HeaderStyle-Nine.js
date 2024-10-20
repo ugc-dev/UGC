@@ -11,9 +11,9 @@ const HeaderStyleNine = () => {
       <header className="rbt-header rbt-header-9">
         <div className="rbt-sticky-placeholder"></div>
 
-        <div className="rbt-header-middle position-relative rbt-header-mid-1 bg-color-white rbt-border-bottom">
+        {/* <div className="rbt-header-middle position-relative rbt-header-mid-1 bg-color-white rbt-border-bottom">
           <HeaderTopMidThree flexDirection="" />
-        </div>
+        </div> */}
 
         <HeaderSeven
           transparent="header-not-transparent header-sticky"
