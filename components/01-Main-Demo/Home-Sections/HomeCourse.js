@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCards, Pagination } from "swiper/modules";
+import { EffectCards, Pagination, Autoplay } from "swiper/modules";
 
 import MainDemoData from "../../../data/course-details/courseData.json";
 
@@ -12,11 +12,15 @@ const HomeCourses = ({ start, end }) => {
       <Swiper
         className="swiper-wrapper"
         effect={"cards"}
-        modules={[EffectCards, Pagination]}
+        modules={[EffectCards, Pagination, Autoplay]}
         grabCursor={true}
         pagination={{
           el: ".rbt-swiper-pagination",
           clickable: true,
+        }}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
         }}
       >
         {MainDemoData &&
