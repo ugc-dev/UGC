@@ -2,6 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   productionBrowserSourceMaps: true,
+  i18n: {
+    locales: ['en', 'fr'],
+    defaultLocale: 'fr',
+    localeDetection: false,
+  },
 };
 
-module.exports = nextConfig
+module.exports = nextConfig;
