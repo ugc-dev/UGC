@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { supabase } from "@/supabase/supabaseClient";
 
 export const CreateContext = createContext();
 
@@ -18,13 +19,16 @@ const Context = ({ children }) => {
   const [pricingTwo, setPricingTwo] = useState(true);
   const [pricingThree, setPricingThree] = useState(true);
   const [pricingFour, setPricingFour] = useState(true);
-  
+
   const [isLightTheme, setLightTheme] = useState(true);
+
+  const [isLogin, setLogin] = useState(false);
+  const [session, setSession] = useState(null);
+  const [userProfile, setUserProfile] = useState(null);
 
   useEffect(() => {
     dispatch({ type: "COUNT_CART_TOTALS" });
   }, [cart]);
-
 
   useEffect(() => {
     const themeType = localStorage.getItem("histudy-theme");
@@ -43,6 +47,62 @@ const Context = ({ children }) => {
       localStorage.setItem("histudy-theme", "dark");
     }
   }, [isLightTheme]);
+
+  useEffect(() => {
+    const getSession = async () => {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+      setSession(session);
+      setLogin(!!session);
+
+      //   const { data: profile, error: profileError } = await supabase
+      //   .from("profile")
+      //   .select("*")
+      //   .eq("id", session?.user?.id);
+
+      // setUserProfile(profile[0]);
+      if (session) {
+        const { data: profile, error: profileError } = await supabase
+          .from("profile")
+          .select("*")
+          .eq("id", session?.user?.id);
+
+        setUserProfile(profile[0]);
+      }
+    };
+
+    getSession();
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+      setLogin(!!session);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  const handleLogin = async (email, password) => {
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+    if (error) {
+      console.error(error.message);
+      return { success: false, message: error.message };
+    }
+
+    return { success: true, userProfile };
+  };
+
+  const handleLogout = async () => {
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      console.error(error.message);
+    }
+  };
 
   const toggleTheme = () => {
     setLightTheme((prevTheme) => !prevTheme);
@@ -72,6 +132,13 @@ const Context = ({ children }) => {
         isLightTheme,
         setLightTheme,
         toggleTheme,
+        isLogin,
+        setLogin,
+        session,
+        setSession,
+        handleLogin,
+        handleLogout,
+        userProfile,
       }}
     >
       {children}
