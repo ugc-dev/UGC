@@ -17,7 +17,14 @@ const HeaderSeven = ({
   btnText,
   headerType,
 }) => {
-  const { mobile, setMobile, isLightTheme } = useAppContext();
+  const {
+    mobile,
+    setMobile,
+    isLightTheme,
+    session,
+    handleLogout,
+    userProfile,
+  } = useAppContext();
   const [isSticky, setIsSticky] = useState(false);
 
   useEffect(() => {
@@ -36,6 +43,7 @@ const HeaderSeven = ({
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   return (
     <>
       <div
@@ -79,9 +87,20 @@ const HeaderSeven = ({
             </div>
             <div className="header-right">
               <div className="rbt-btn-wrapper d-none d-xl-block">
-                <Link className={`rbt-btn ${btnClass}`} href="#">
-                  <span data-text={`${btnText}`}>{btnText}</span>
-                </Link>
+                {session ? (
+                  <button
+                    onClick={handleLogout}
+                    className={`rbt-btn ${btnClass}`}
+                  >
+                    <span data-text={`${btnText}`}>
+                      {userProfile?.display_name || "Logout"}
+                    </span>
+                  </button>
+                ) : (
+                  <Link href="/login" className={`rbt-btn ${btnClass}`}>
+                    <span data-text={`${btnText}`}>{btnText}</span>
+                  </Link>
+                )}
               </div>
 
               <div className="mobile-menu-bar d-block d-xl-none">
