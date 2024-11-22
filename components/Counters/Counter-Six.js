@@ -39,12 +39,13 @@ const CounterSix = ({ head }) => {
                     <div className="inner">
                       <div className="content">
                         <h2 className="counter">
-                          <span className="odometer">
+                          <span className="odometer d-flex   align-items-center">
                             <Odometer
                               value={
                                 values[index * data.body.length + innerIndex]
                               }
                             />
+                            <span>{item.sign}</span>
                           </span>
                         </h2>
                         <span className="subtitle">{item.text}</span>

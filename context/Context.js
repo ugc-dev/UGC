@@ -23,7 +23,7 @@ const Context = ({ children }) => {
   const [isLightTheme, setLightTheme] = useState(true);
 
   const [isLogin, setLogin] = useState(false);
-  const [session, setSession] = useState(null);
+  const [session, setSession] = useState(undefined);
   const [userProfile, setUserProfile] = useState(null);
 
   useEffect(() => {
@@ -56,12 +56,6 @@ const Context = ({ children }) => {
       setSession(session);
       setLogin(!!session);
 
-      //   const { data: profile, error: profileError } = await supabase
-      //   .from("profile")
-      //   .select("*")
-      //   .eq("id", session?.user?.id);
-
-      // setUserProfile(profile[0]);
       if (session) {
         const { data: profile, error: profileError } = await supabase
           .from("profile")

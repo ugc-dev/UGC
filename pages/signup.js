@@ -1,107 +1,23 @@
-import React, { useState } from "react";
-import { useRouter } from "next/router";
-import { supabase } from "@/supabase/supabaseClient";
+import React from "react";
+import Context from "@/context/Context";
+import { Provider } from "react-redux";
+import Store from "@/redux/store";
+import MobileMenu from "@/components/Header/MobileMenu";
+import HeaderStyle from "@/components/Header/HeaderStyle";
+import FooterOne from "@/components/Footer/Footer-One";
+import Signup from "@/components/Signup";
 
-const Signup = () => {
-  const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [error, setError] = useState(null);
-  const router = useRouter();
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (password !== confirmPassword) {
-      setError("Passwords do not match");
-      return;
-    }
-
-    const { error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: { data: { user_name: username } },
-    });
-
-    if (error) {
-      setError(error.message);
-    } else {
-      setError(null);
-      router.push("/");
-    }
-  };
-
+const login = () => {
   return (
-    <div className="col-lg-6">
-      <div className="rbt-contact-form contact-form-style-1 max-width-auto">
-        <h3 className="title">Register</h3>
-        <form className="max-width-auto" onSubmit={handleSubmit}>
-          <div className="form-group">
-            <input
-              name="register-email"
-              type="email"
-              placeholder="Email address *"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <span className="focus-border"></span>
-          </div>
-
-          <div className="form-group">
-            <input
-              name="register_user"
-              type="text"
-              placeholder="Username *"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-            <span className="focus-border"></span>
-          </div>
-
-          <div className="form-group">
-            <input
-              name="register_password"
-              type="password"
-              placeholder="Password *"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <span className="focus-border"></span>
-          </div>
-
-          <div className="form-group">
-            <input
-              name="register_conpassword"
-              type="password"
-              placeholder="Confirm Password *"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-            <span className="focus-border"></span>
-          </div>
-
-          {error && <p className="error">{error}</p>}
-
-          <div className="form-submit-group">
-            <button
-              type="submit"
-              className="rbt-btn btn-md btn-gradient hover-icon-reverse w-100"
-            >
-              <span className="icon-reverse-wrapper">
-                <span className="btn-text">Register</span>
-                <span className="btn-icon">
-                  <i className="feather-arrow-right"></i>
-                </span>
-                <span className="btn-icon">
-                  <i className="feather-arrow-right"></i>
-                </span>
-              </span>
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
+    <Provider store={Store}>
+      <Context>
+        <MobileMenu />
+        <HeaderStyle headerSticky="rbt-sticky" headerType="" />
+        <Signup />
+        <FooterOne />
+      </Context>
+    </Provider>
   );
 };
 
-export default Signup;
+export default login;
