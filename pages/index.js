@@ -5,11 +5,11 @@ import Store from "@/redux/store";
 
 import Context from "@/context/Context";
 
-import HomePageContent from "@/components/HomePageContent";
-import HeaderStyleNine from "@/components/Header/HeaderStyle-Nine";
 import MobileMenu from "@/components/Header/MobileMenu";
 import Separator from "@/components/Common/Separator";
 import FooterOne from "@/components/Footer/Footer-One";
+import HeaderStyle from "@/components/Header/HeaderStyle";
+import HomePageContent from "@/components/HomePageContent";
 
 const Home = () => {
   return (
@@ -18,7 +18,7 @@ const Home = () => {
       <Provider store={Store}>
         <Context>
           <MobileMenu />
-          <HeaderStyleNine headerType="" />
+          <HeaderStyle headerSticky="rbt-sticky" headerType="" />
           <HomePageContent />
           <BackToTop />
           <Separator />
