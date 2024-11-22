@@ -210,22 +210,25 @@
   ],
   "counterSix": [
     {
-      "tag": "WHY CHOOSE US",
-      "title": "Creating A Community Of",
-      "subTitle": "Life Long Learners.",
-      "desc": "There are many variations of passages of the Ipsum available, but the majority have suffered alteration in some form, by injected humour.",
+      "tag": "WHY CHOOSE UGC",
+      "title": "Why Choose UGC for Your Brand?",
+      "subTitle": "",
+      "desc": "Discover why user-generated content is the future of brand engagement.",
       "body": [
         {
-          "text": "Learners & counting",
-          "num": 500
+          "text": "Consumers trust real people’s recommendations over ads.",
+          "num": 84,
+          "sign": "%"
         },
         {
-          "text": "Courses & Video",
-          "num": 800
+          "text": "UGC drives more engagement than branded content.",
+          "num": 7,
+          "sign": "x"
         },
         {
-          "text": "Certified Students",
-          "num": 1000
+          "text": "UGC is more trusted than traditional ads.",
+          "num": 6,
+          "sign": "x"
         }
       ]
     }

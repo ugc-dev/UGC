@@ -1,27 +1,31 @@
-import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
-import { useAppContext } from "@/context/Context";
+import { supabase } from "@/supabase/supabaseClient";
+import Link from "next/link";
 
-const Login = () => {
-  const { handleLogin, isLogin } = useAppContext();
+const Signup = () => {
   const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState(null);
-
   const router = useRouter();
 
-  useEffect(() => {
-    if (isLogin) {
-      router.push("/");
-    }
-  }, [isLogin]);
-
-  const onSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const result = await handleLogin(email, password);
-    if (!result.success) {
-      setError(result.message);
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+
+    const { error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: { data: { user_name: username } },
+    });
+
+    if (error) {
+      setError(error.message);
     } else {
       setError(null);
       router.push("/");
@@ -34,21 +38,33 @@ const Login = () => {
         <div className="row justify-content-center">
           <div className="col-lg-6">
             <div className="rbt-contact-form contact-form-style-1 max-width-auto">
-              <h3 className="title">Login</h3>
-              <form className="max-width-auto" onSubmit={onSubmit}>
+              <h3 className="title">Register</h3>
+              <form className="max-width-auto" onSubmit={handleSubmit}>
                 <div className="form-group">
                   <input
-                    name="email"
+                    name="register-email"
                     type="email"
-                    placeholder="Email *"
+                    placeholder="Email address *"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
                   <span className="focus-border"></span>
                 </div>
+
                 <div className="form-group">
                   <input
-                    name="password"
+                    name="register_user"
+                    type="text"
+                    placeholder="Username *"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                  />
+                  <span className="focus-border"></span>
+                </div>
+
+                <div className="form-group">
+                  <input
+                    name="register_password"
                     type="password"
                     placeholder="Password *"
                     value={password}
@@ -57,34 +73,26 @@ const Login = () => {
                   <span className="focus-border"></span>
                 </div>
 
+                <div className="form-group">
+                  <input
+                    name="register_conpassword"
+                    type="password"
+                    placeholder="Confirm Password *"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                  />
+                  <span className="focus-border"></span>
+                </div>
+
                 {error && <p className="error">{error}</p>}
 
-                <div className="row mb--30">
-                  <div className="col-lg-6">
-                    <div className="rbt-checkbox">
-                      <input
-                        type="checkbox"
-                        id="rememberme"
-                        name="rememberme"
-                      />
-                      <label htmlFor="rememberme">Remember me</label>
-                    </div>
-                  </div>
-                  <div className="col-lg-6">
-                    <div className="rbt-lost-password text-end">
-                      <Link className="rbt-btn-link" href="#">
-                        Lost your password?
-                      </Link>
-                    </div>
-                  </div>
-                </div>
                 <div className="form-submit-group">
                   <button
                     type="submit"
                     className="rbt-btn btn-md btn-gradient hover-icon-reverse w-100"
                   >
                     <span className="icon-reverse-wrapper">
-                      <span className="btn-text">Log In</span>
+                      <span className="btn-text">Register</span>
                       <span className="btn-icon">
                         <i className="feather-arrow-right"></i>
                       </span>
@@ -97,8 +105,7 @@ const Login = () => {
               </form>
               <div className="text-center mt-3">
                 <p>
-                  Don&apos;t have an account ?{" "}
-                  <Link href="/signup">Sign Up</Link>
+                  Already have an account ? <Link href="/login">Login</Link>
                 </p>
               </div>
             </div>
@@ -109,4 +116,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;

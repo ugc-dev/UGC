@@ -20,27 +20,25 @@ const BannerSection = () => (
         <div className="col-lg-8">
           <div className="content">
             <div className="inner">
-              <div className="rbt-new-badge rbt-new-badge-one">
-                <span className="rbt-new-badge-icon">🏆</span> The Leader in
-                Online Learning
-              </div>
+              <blockquote className="rbt-new-badge rbt-new-badge-one">
+                <span className="rbt-new-badge-icon">🎨</span> Empowering
+                Creativity, Connecting Brands with Authentic Voices
+              </blockquote>
               <h1 className="title">
-                The Largest{" "}
-                <span className="color-primary">Online Learning</span> Platform
-                for Drive Your Career.
+                Your Creative <span className="color-primary">Marketplace</span>{" "}
+                for UGC Content in Morocco
               </h1>
               <p className="description">
-                This template includes all the necessary pages of the
-                onlineLorem. And you can be build Link{" "}
-                <strong>education template easily</strong>.
+                Connect with talented creators and collaborate on content that
+                elevates your brand.
               </p>
               <div className="slider-btn">
                 <Link
                   className="rbt-btn btn-gradient hover-icon-reverse"
-                  href="#"
+                  href="#explore-creators"
                 >
                   <span className="icon-reverse-wrapper">
-                    <span className="btn-text">View Course</span>
+                    <span className="btn-text">Discover Creators</span>
                     <span className="btn-icon">
                       <i className="feather-arrow-right"></i>
                     </span>
@@ -53,6 +51,7 @@ const BannerSection = () => (
             </div>
           </div>
         </div>
+
         <div className="col-lg-4">
           <div className="content">
             <div className="banner-card pb--60 swiper rbt-dot-bottom-center banner-swiper-active">
