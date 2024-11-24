@@ -1,3 +1,4 @@
+<<<<<<<< HEAD:components/Services/Service-Saven.js
 import Image from "next/image";
 import Link from "next/link";
 
@@ -89,3 +90,99 @@ const ServiceSaven = ({ head }) => {
 };
 
 export default ServiceSaven;
+========
+import Image from "next/image";
+import Link from "next/link";
+
+import ServiceData from "../../data/elements/service.json";
+
+const ServiceSaven = ({ head }) => {
+  return (
+    <>
+      {ServiceData &&
+        ServiceData.serviceSeven.map((data, index) => (
+          <div className="container" key={index}>
+            {head === undefined ? (
+              <div className="row mb--60">
+                <div className="col-lg-12">
+                  <div className="section-title text-center">
+                    <h2 className="title">{data.sectionTitle}</h2>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              ""
+            )}
+            <div className="row row--15 mt_dec--30">
+              {/* Left Section */}
+              <div className="col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12 mt--30">
+                <div className="section-title text-start">
+                  <h2 className="title">{data.title}</h2>
+                  <p className="description mt--20">{data.desc}</p>
+                  <div className="read-more-btn">
+                    <Link
+                      className="rbt-btn btn-gradient radius rbt-marquee-btn marquee-text-y"
+                      href="#"
+                    >
+                      <span data-text="About More Us">About More Us</span>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Section (Cards) */}
+              {data.body.map((item, innerIndex) => (
+                <div
+                  className="col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12 mt--30"
+                  key={innerIndex}
+                >
+                  <div
+                    className={`service-card service-card-6 ${
+                      item.bgOne
+                        ? "bg-card-color-1"
+                        : item.bgTwo
+                        ? "bg-card-color-2"
+                        : item.bgThree
+                        ? "bg-card-color-3"
+                        : item.bgFour
+                        ? "bg-card-color-4"
+                        : item.bgFive
+                        ? "bg-card-color-5"
+                        : ""
+                    }`}
+                  >
+                    <div className="inner">
+                      <div className="icon">
+                        <Image
+                          src={item.img}
+                          width={60}
+                          height={60}
+                          alt="Shape Image"
+                        />
+                        <Image
+                          className="opacity_image"
+                          src={item.img}
+                          width={60}
+                          height={60}
+                          alt="Shape Image"
+                        />
+                      </div>
+                      <div className="content">
+                        <h6 className="title">
+                          <Link href="#">{item.title}</Link>
+                        </h6>
+                        <p className="description">{item.desc}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+    </>
+  );
+};
+
+export default ServiceSaven;
+>>>>>>>> f50b8a59820ea96bc767a3639ec8fae5e67df2f7:componentslibrary/Services/Service-Saven.js
