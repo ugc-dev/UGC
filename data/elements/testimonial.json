@@ -314,29 +314,29 @@
   ],
   "testimonialFour": [
     {
-      "tag": "EDUCATION FOR EVERYONE",
-      "title": "Student's Feedback",
+      "tag": "UGC STORIES",
+      "title": "What Our Moroccan Clients Say",
       "body": [
         {
           "img": "/images/testimonial/client-01.png",
-          "title": "Martha Maldonado",
-          "position": "Executive Chairman",
-          "company": "@ Google",
-          "desc": "After the launch, vulputate at sapien sit amet, auctor iaculis lorem. In vel hend rerit."
+          "title": "Fatima Zahra Berrada",
+          "position": "Marketing Manager",
+          "company": "@ Argan Bio Cooperative",
+          "desc": "UGC helped us showcase our Argan oil products authentically. The creators’ videos resonated with local and international customers"
         },
         {
           "img": "/images/testimonial/client-02.png",
-          "title": "Michael D. Lovelady",
-          "position": "CEO",
-          "company": "@ Google",
-          "desc": "Histudy education, vulputate at sapien sit amet, auctor iaculis lorem. In vel hend rerit. "
+          "title": "Youssef Amrani",
+          "position": "Founder",
+          "company": "@ Made in Marrakech",
+          "desc": "At first, I was hesitant, but UGC creators exceeded my expectations. They beautifully captured our artisanal products, forming a strong connection with our audience."
         },
         {
-          "img": "/images/testimonial/client-03.png",
-          "title": "Valerie J. Creasman",
-          "position": "Executive Designer",
-          "company": "@ Google",
-          "desc": "Our educational, vulputate at sapien sit amet, auctor iaculis lorem. In vel hend rerit nisi."
+          "img": "/images/testimonial/client-04.png",
+          "title": "Rachid Tazi",
+          "position": "Business Owner",
+          "company": "@ Tazi Traditional Café",
+          "desc": "UGC creators perfectly captured the vibe of our café. Their Instagram stories and reels attracted new local customers, and our community keeps growing."
         }
       ]
     }

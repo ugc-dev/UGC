@@ -7,7 +7,7 @@ const ServiceSaven = ({ head }) => {
   return (
     <>
       {ServiceData &&
-        ServiceData.serviceSaven.map((data, index) => (
+        ServiceData.serviceSeven.map((data, index) => (
           <div className="container" key={index}>
             {head === undefined ? (
               <div className="row mb--60">
@@ -21,6 +21,7 @@ const ServiceSaven = ({ head }) => {
               ""
             )}
             <div className="row row--15 mt_dec--30">
+              {/* Left Section */}
               <div className="col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12 mt--30">
                 <div className="section-title text-start">
                   <h2 className="title">{data.title}</h2>
@@ -35,22 +36,24 @@ const ServiceSaven = ({ head }) => {
                   </div>
                 </div>
               </div>
+
+              {/* Right Section (Cards) */}
               {data.body.map((item, innerIndex) => (
                 <div
                   className="col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12 mt--30"
                   key={innerIndex}
                 >
                   <div
-                    className={`service-card service-card-6 bg-color ${
+                    className={`service-card service-card-6 ${
                       item.bgOne
                         ? "bg-card-color-1"
-                        : "" || item.bgTwo
+                        : item.bgTwo
                         ? "bg-card-color-2"
-                        : "" || item.bgThree
+                        : item.bgThree
                         ? "bg-card-color-3"
-                        : "" || item.bgFour
+                        : item.bgFour
                         ? "bg-card-color-4"
-                        : "" || item.bgFive
+                        : item.bgFive
                         ? "bg-card-color-5"
                         : ""
                     }`}
@@ -61,21 +64,21 @@ const ServiceSaven = ({ head }) => {
                           src={item.img}
                           width={60}
                           height={60}
-                          alt="Shape Images"
+                          alt="Shape Image"
                         />
                         <Image
                           className="opacity_image"
                           src={item.img}
                           width={60}
                           height={60}
-                          alt="Shape Images"
+                          alt="Shape Image"
                         />
                       </div>
                       <div className="content">
                         <h6 className="title">
-                          <Link href="#">{data.title}</Link>
+                          <Link href="#">{item.title}</Link>
                         </h6>
-                        <p className="description">{data.desc}</p>
+                        <p className="description">{item.desc}</p>
                       </div>
                     </div>
                   </div>
