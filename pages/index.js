@@ -2,7 +2,6 @@ import PageHead from "@/pages/Head";
 import { Provider } from "react-redux";
 import Store from "@/redux/store";
 import BackToTop from "@/pages/backToTop";
-
 import Context from "@/context/Context";
 
 import HomePageContent from "@/components/HomePageContent";
