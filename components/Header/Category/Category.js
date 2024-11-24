@@ -1,5 +1,6 @@
 import Link from "next/link";
-import CategoryData from "../../../data/elements/category";
+import CategoryData from "../../../data/elements/category.json";
+
 import SingleCategory from "./CategoryProps/SingleCategory";
 
 const Category = () => {

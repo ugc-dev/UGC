@@ -5,16 +5,16 @@ import Store from "@/redux/store";
 import { Provider } from "react-redux";
 
 import Separator from "@/components/Common/Separator";
-import FooterOne from "@/components/Footer/Footer-One";
-import HeaderStyleTen from "@/components/Header/HeaderStyle-Ten";
 import NotFound from "@/components/NotFound/NotFound";
+import FooterOne from "@/components/Footer/Footer-One";
+import HeaderStyleNine from "@/components/Header/HeaderStyle-Nine";
 
 const ErrorPage = () => {
   return (
     <Provider store={Store}>
       <Context>
         <PageHead title="Page not found - Online Courses & Education NEXTJS14 Template" />
-        <HeaderStyleTen headerSticky="rbt-sticky" headerType="" />
+        <HeaderStyleNine headerSticky="rbt-sticky" headerType="" />
 
         <NotFound />
 
