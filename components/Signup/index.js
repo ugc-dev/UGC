@@ -3,9 +3,15 @@ import { useRouter } from "next/router";
 import { supabase } from "@/supabase/supabaseClient";
 import Link from "next/link";
 
+const AccountType = {
+  USER: 1,
+  CREATOR: 2,
+};
+
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
+  const [accountType, setAccountType] = useState(AccountType.USER);
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState(null);
@@ -17,15 +23,17 @@ const Signup = () => {
       setError("Passwords do not match");
       return;
     }
+    console.log(email, username, accountType, password);
 
     const { error } = await supabase.auth.signUp({
       email,
       password,
-      options: { data: { user_name: username } },
+      options: { data: { user_name: username, account_type: accountType } },
     });
 
     if (error) {
-      setError(error.message);
+      error.message || "An unexpected error occurred. Please try again.";
+      setError(errorMessage);
     } else {
       setError(null);
       router.push("/");
@@ -83,9 +91,38 @@ const Signup = () => {
                   />
                   <span className="focus-border"></span>
                 </div>
-
+                <div className="form-group">
+                  <div className="d-flex align-items-center">
+                    <div className="rbt-radio-wrapper">
+                      <input
+                        id="user-radio"
+                        type="radio"
+                        name="accountType"
+                        value={AccountType.USER}
+                        checked={accountType === AccountType.USER}
+                        onChange={(e) => setAccountType(Number(e.target.value))}
+                      />
+                      <label htmlFor="user-radio" className="ms-2 me-4">
+                        User Account
+                      </label>
+                    </div>
+                    <div className="rbt-radio-wrapper">
+                      <input
+                        id="creator-radio"
+                        type="radio"
+                        name="accountType"
+                        value={AccountType.CREATOR}
+                        checked={accountType === AccountType.CREATOR}
+                        onChange={(e) => setAccountType(Number(e.target.value))}
+                      />
+                      <label htmlFor="creator-radio" className="ms-2">
+                        Creator Account
+                      </label>
+                    </div>
+                  </div>
+                  <span className="focus-border"></span>
+                </div>
                 {error && <p className="error">{error}</p>}
-
                 <div className="form-submit-group">
                   <button
                     type="submit"

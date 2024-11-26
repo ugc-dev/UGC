@@ -1,15 +1,17 @@
 import Image from "next/image";
 
 import UserData from "../../../data/user.json";
+import StudentData from "../../../data/student.json";
 import Link from "next/link";
 import { useAppContext } from "@/context/Context";
 
 const User = () => {
   const { handleLogout, userProfile } = useAppContext();
+  const DataToMap = userProfile?.account_type === 1 ? StudentData : UserData;
   return (
     <div className="rbt-user-menu-list-wrapper">
-      {UserData &&
-        UserData.user.map((person, index) => (
+      {DataToMap &&
+        DataToMap.user.map((person, index) => (
           <div className="inner" key={index}>
             <div className="rbt-admin-profile">
               <div className="admin-thumbnail">

@@ -15,9 +15,7 @@ const ErrorPage = () => {
       <Context>
         <PageHead title="Page not found - Online Courses & Education NEXTJS14 Template" />
         <HeaderStyle headerSticky="rbt-sticky" headerType="" />
-
         <NotFound />
-
         <Separator />
         <FooterOne />
       </Context>
