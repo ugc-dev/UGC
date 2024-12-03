@@ -1,62 +1,62 @@
 {
   "siderbar": [
     {
-      "link": "/instructor/instructor-dashboard",
+      "link": "/creator/dashboard",
       "text": "Dashboard",
       "icon": "feather-home"
     },
     {
-      "link": "/instructor/instructor-profile",
+      "link": "/creator/profile",
       "text": "My Profile",
       "icon": "feather-user"
     },
     {
-      "link": "/instructor/instructor-enrolled-course",
+      "link": "/creator/enrolled-course",
       "text": "Enrolled Courses",
       "icon": "feather-book-open"
     },
     {
-      "link": "/instructor/instructor-wishlist",
+      "link": "/creator/wishlist",
       "text": "Wishlist",
       "icon": "feather-bookmark"
     },
     {
-      "link": "/instructor/instructor-reviews",
+      "link": "/creator/reviews",
       "text": "Reviews",
       "icon": "feather-star"
     },
     {
-      "link": "/instructor/instructor-quiz-attempts",
+      "link": "/creator/quiz-attempts",
       "text": "My Quiz Attempts",
       "icon": "feather-help-circle"
     },
     {
-      "link": "/instructor/instructor-order-history",
+      "link": "/creator/order-history",
       "text": "Order History",
       "icon": "feather-shopping-bag"
     },
     {
-      "link": "/instructor/instructor-personal-courses",
+      "link": "/creator/personal-courses",
       "text": "My Courses",
       "icon": "feather-monitor"
     },
     {
-      "link": "/instructor/instructor-announcements",
+      "link": "/creator/announcements",
       "text": "Announcements",
       "icon": "feather-volume-2"
     },
     {
-      "link": "/instructor/instructor-quiz-attempts",
+      "link": "/creator/quiz-attempts",
       "text": "Quiz Attempts",
       "icon": "feather-message-square"
     },
     {
-      "link": "/instructor/instructor-assignments",
+      "link": "/creator/assignments",
       "text": "Assignments",
       "icon": "feather-list"
     },
     {
-      "link": "/instructor/instructor-settings",
+      "link": "/creator/settings",
       "text": "Settings",
       "icon": "feather-settings"
     },

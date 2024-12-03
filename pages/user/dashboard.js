@@ -1,5 +1,5 @@
 import Dashboard from "@/components/Creator/Dashboard";
-import UserLayout from "@/components/user/UserLayout";
+import UserLayout from "@/components/User/UserLayout";
 
 const UserDashboard = () => {
   return (

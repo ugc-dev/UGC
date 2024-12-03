@@ -5,10 +5,9 @@ import Store from "@/redux/store";
 import MobileMenu from "@/components/Header/MobileMenu";
 import HeaderStyle from "@/components/Header/HeaderStyle";
 import FooterOne from "@/components/Footer/Footer-One";
-import StudentDashboardSidebar from "./StudentDashboardSidebar";
-import StudentDashboardHeader from "./StudentDashboardHeader";
 import PageHead from "@/pages/Head";
-import Link from "next/link";
+import StudentDashboardHeader from "./StudentDashboardHeader";
+import StudentDashboardSidebar from "./StudentDashboardSidebar";
 
 const UserLayout = ({ children }) => {
   return (

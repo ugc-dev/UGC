@@ -7,7 +7,7 @@
         {
           "icon": "feather-home",
           "text": "My Dashboard",
-          "link": "/student/student-dashboard"
+          "link": "/user/dashboard"
         },
         {
           "icon": "feather-bookmark",
@@ -17,32 +17,32 @@
         {
           "icon": "feather-shopping-bag",
           "text": "Enrolled Courses",
-          "link": "/instructor/instructor-enrolled-course"
+          "link": "/user/enrolled-course"
         },
         {
           "icon": "feather-heart",
           "text": "Wishlist",
-          "link": "/instructor/instructor-wishlist"
+          "link": "/user/wishlist"
         },
         {
           "icon": "feather-star",
           "text": "Reviews",
-          "link": "/instructor/instructor-reviews"
+          "link": "/user/reviews"
         },
         {
           "icon": "feather-list",
           "text": "My Quiz Attempts",
-          "link": "/instructor/instructor-my-quiz-attempts"
+          "link": "/user/my-quiz-attempts"
         },
         {
           "icon": "feather-clock",
           "text": "Order History",
-          "link": "/instructor/instructor-order-history"
+          "link": "/user/order-history"
         },
         {
           "icon": "feather-message-square",
           "text": "Question & Answer",
-          "link": "/instructor/instructor-quiz-attempts"
+          "link": "/user/quiz-attempts"
         }
       ]
     }

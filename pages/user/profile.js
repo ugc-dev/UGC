@@ -1,5 +1,5 @@
-import Profile from "@/components/user/Profile";
-import UserLayout from "@/components/user/UserLayout";
+import Profile from "@/components/User/Profile";
+import UserLayout from "@/components/User/UserLayout";
 
 const UserProfile = () => {
   return (
