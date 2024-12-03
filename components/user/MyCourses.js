@@ -1,14 +1,13 @@
 import Link from "next/link";
 import Courses from "../../data/dashboard/instructor/instructor.json";
-import CourseWidgets from "../Instructor/Dashboard-Section/widgets/CourseWidget";
-
-const EnrolledCourses = () => {
+import CourseWidget from "../Creator/Dashboard-Section/widgets/CourseWidget";
+const MyCourses = () => {
   return (
     <>
       <div className="rbt-dashboard-content bg-color-white rbt-shadow-box">
         <div className="content">
           <div className="section-title">
-            <h4 className="rbt-title-style-3">Enrolled Courses</h4>
+            <h4 className="rbt-title-style-3">My Courses</h4>
           </div>
           <div className="advance-tab-button mb--30">
             <ul
@@ -20,92 +19,65 @@ const EnrolledCourses = () => {
                 <Link
                   href="#"
                   className="tab-button active"
-                  id="home-tab-4"
+                  id="publish-tab-4"
                   data-bs-toggle="tab"
-                  data-bs-target="#home-4"
+                  data-bs-target="#publish-4"
                   role="tab"
-                  aria-controls="home-4"
+                  aria-controls="publish-4"
                   aria-selected="true"
                 >
-                  <span className="title">Enrolled Courses</span>
+                  <span className="title">Publish</span>
                 </Link>
               </li>
               <li role="presentation">
                 <Link
                   href="#"
                   className="tab-button"
-                  id="profile-tab-4"
+                  id="pending-tab-4"
                   data-bs-toggle="tab"
-                  data-bs-target="#profile-4"
+                  data-bs-target="#pending-4"
                   role="tab"
-                  aria-controls="profile-4"
+                  aria-controls="pending-4"
                   aria-selected="false"
                 >
-                  <span className="title">Active Courses</span>
+                  <span className="title">Pending</span>
                 </Link>
               </li>
               <li role="presentation">
                 <Link
                   href="#"
                   className="tab-button"
-                  id="contact-tab-4"
+                  id="draft-tab-4"
                   data-bs-toggle="tab"
-                  data-bs-target="#contact-4"
+                  data-bs-target="#draft-4"
                   role="tab"
-                  aria-controls="contact-4"
+                  aria-controls="draft-4"
                   aria-selected="false"
                 >
-                  <span className="title">Completed Courses</span>
+                  <span className="title">Draft</span>
                 </Link>
               </li>
             </ul>
           </div>
-
           <div className="tab-content">
             <div
               className="tab-pane fade active show"
-              id="home-4"
+              id="publish-4"
               role="tabpanel"
-              aria-labelledby="home-tab-4"
+              aria-labelledby="publish-tab-4"
             >
               <div className="row g-5">
                 {Courses.slice(0, 3)?.map((slide, index) => (
                   <div
                     className="col-lg-4 col-md-6 col-12"
-                    key={`course-enrolled-${index}`}
+                    key={`course-published-${index}`}
                   >
-                    <CourseWidgets
+                    <CourseWidget
                       data={slide}
                       courseStyle="two"
-                      isProgress={true}
-                      isCompleted={false}
-                      isEdit={false}
-                      showDescription={false}
-                      showAuthor={false}
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div
-              className="tab-pane fade"
-              id="profile-4"
-              role="tabpanel"
-              aria-labelledby="profile-tab-4"
-            >
-              <div className="row g-5">
-                {Courses.slice(3, 6)?.map((slide, index) => (
-                  <div
-                    className="col-lg-4 col-md-6 col-12"
-                    key={`course-active-${index}`}
-                  >
-                    <CourseWidgets
-                      data={slide}
-                      courseStyle="two"
+                      isEdit={true}
                       isCompleted={false}
                       isProgress={false}
-                      isEdit={false}
                       showDescription={false}
                       showAuthor={false}
                     />
@@ -116,23 +88,49 @@ const EnrolledCourses = () => {
 
             <div
               className="tab-pane fade"
-              id="contact-4"
+              id="pending-4"
               role="tabpanel"
-              aria-labelledby="contact-tab-4"
+              aria-labelledby="pending-tab-4"
             >
               <div className="row g-5">
-                {Courses.slice(1, 4)?.map((slide, index) => (
+                {Courses.slice(0, 3)?.map((slide, index) => (
                   <div
                     className="col-lg-4 col-md-6 col-12"
-                    key={`course-completed-${index}`}
+                    key={`course-pending-${index}`}
                   >
-                    <CourseWidgets
+                    <CourseWidget
                       data={slide}
                       courseStyle="two"
-                      isCompleted={true}
-                      isProgress={true}
+                      isEdit={true}
+                      isCompleted={false}
+                      isProgress={false}
                       showDescription={false}
-                      isEdit={false}
+                      showAuthor={false}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div
+              className="tab-pane fade"
+              id="draft-4"
+              role="tabpanel"
+              aria-labelledby="draft-tab-4"
+            >
+              <div className="row g-5">
+                {Courses.slice(0, 3)?.map((slide, index) => (
+                  <div
+                    className="col-lg-4 col-md-6 col-12"
+                    key={`course-draft-${index}`}
+                  >
+                    <CourseWidget
+                      data={slide}
+                      courseStyle="two"
+                      isEdit={true}
+                      isCompleted={false}
+                      isProgress={false}
+                      showDescription={false}
                       showAuthor={false}
                     />
                   </div>
@@ -146,4 +144,4 @@ const EnrolledCourses = () => {
   );
 };
 
-export default EnrolledCourses;
+export default MyCourses;

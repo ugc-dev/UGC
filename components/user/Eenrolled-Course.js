@@ -1,13 +1,14 @@
 import Link from "next/link";
 import Courses from "../../data/dashboard/instructor/instructor.json";
-import CourseWidget from "../Instructor/Dashboard-Section/widgets/CourseWidget";
-const MyCourses = () => {
+import CourseWidgets from "../Creator/Dashboard-Section/widgets/CourseWidget";
+
+const EnrolledCourses = () => {
   return (
     <>
       <div className="rbt-dashboard-content bg-color-white rbt-shadow-box">
         <div className="content">
           <div className="section-title">
-            <h4 className="rbt-title-style-3">My Courses</h4>
+            <h4 className="rbt-title-style-3">Enrolled Courses</h4>
           </div>
           <div className="advance-tab-button mb--30">
             <ul
@@ -19,65 +20,66 @@ const MyCourses = () => {
                 <Link
                   href="#"
                   className="tab-button active"
-                  id="publish-tab-4"
+                  id="home-tab-4"
                   data-bs-toggle="tab"
-                  data-bs-target="#publish-4"
+                  data-bs-target="#home-4"
                   role="tab"
-                  aria-controls="publish-4"
+                  aria-controls="home-4"
                   aria-selected="true"
                 >
-                  <span className="title">Publish</span>
+                  <span className="title">Enrolled Courses</span>
                 </Link>
               </li>
               <li role="presentation">
                 <Link
                   href="#"
                   className="tab-button"
-                  id="pending-tab-4"
+                  id="profile-tab-4"
                   data-bs-toggle="tab"
-                  data-bs-target="#pending-4"
+                  data-bs-target="#profile-4"
                   role="tab"
-                  aria-controls="pending-4"
+                  aria-controls="profile-4"
                   aria-selected="false"
                 >
-                  <span className="title">Pending</span>
+                  <span className="title">Active Courses</span>
                 </Link>
               </li>
               <li role="presentation">
                 <Link
                   href="#"
                   className="tab-button"
-                  id="draft-tab-4"
+                  id="contact-tab-4"
                   data-bs-toggle="tab"
-                  data-bs-target="#draft-4"
+                  data-bs-target="#contact-4"
                   role="tab"
-                  aria-controls="draft-4"
+                  aria-controls="contact-4"
                   aria-selected="false"
                 >
-                  <span className="title">Draft</span>
+                  <span className="title">Completed Courses</span>
                 </Link>
               </li>
             </ul>
           </div>
+
           <div className="tab-content">
             <div
               className="tab-pane fade active show"
-              id="publish-4"
+              id="home-4"
               role="tabpanel"
-              aria-labelledby="publish-tab-4"
+              aria-labelledby="home-tab-4"
             >
               <div className="row g-5">
                 {Courses.slice(0, 3)?.map((slide, index) => (
                   <div
                     className="col-lg-4 col-md-6 col-12"
-                    key={`course-published-${index}`}
+                    key={`course-enrolled-${index}`}
                   >
-                    <CourseWidget
+                    <CourseWidgets
                       data={slide}
                       courseStyle="two"
-                      isEdit={true}
+                      isProgress={true}
                       isCompleted={false}
-                      isProgress={false}
+                      isEdit={false}
                       showDescription={false}
                       showAuthor={false}
                     />
@@ -88,22 +90,22 @@ const MyCourses = () => {
 
             <div
               className="tab-pane fade"
-              id="pending-4"
+              id="profile-4"
               role="tabpanel"
-              aria-labelledby="pending-tab-4"
+              aria-labelledby="profile-tab-4"
             >
               <div className="row g-5">
-                {Courses.slice(0, 3)?.map((slide, index) => (
+                {Courses.slice(3, 6)?.map((slide, index) => (
                   <div
                     className="col-lg-4 col-md-6 col-12"
-                    key={`course-pending-${index}`}
+                    key={`course-active-${index}`}
                   >
-                    <CourseWidget
+                    <CourseWidgets
                       data={slide}
                       courseStyle="two"
-                      isEdit={true}
                       isCompleted={false}
                       isProgress={false}
+                      isEdit={false}
                       showDescription={false}
                       showAuthor={false}
                     />
@@ -114,23 +116,23 @@ const MyCourses = () => {
 
             <div
               className="tab-pane fade"
-              id="draft-4"
+              id="contact-4"
               role="tabpanel"
-              aria-labelledby="draft-tab-4"
+              aria-labelledby="contact-tab-4"
             >
               <div className="row g-5">
-                {Courses.slice(0, 3)?.map((slide, index) => (
+                {Courses.slice(1, 4)?.map((slide, index) => (
                   <div
                     className="col-lg-4 col-md-6 col-12"
-                    key={`course-draft-${index}`}
+                    key={`course-completed-${index}`}
                   >
-                    <CourseWidget
+                    <CourseWidgets
                       data={slide}
                       courseStyle="two"
-                      isEdit={true}
-                      isCompleted={false}
-                      isProgress={false}
+                      isCompleted={true}
+                      isProgress={true}
                       showDescription={false}
+                      isEdit={false}
                       showAuthor={false}
                     />
                   </div>
@@ -144,4 +146,4 @@ const MyCourses = () => {
   );
 };
 
-export default MyCourses;
+export default EnrolledCourses;

@@ -6,14 +6,14 @@ import MobileMenu from "@/components/Header/MobileMenu";
 import HeaderStyle from "@/components/Header/HeaderStyle";
 import FooterOne from "@/components/Footer/Footer-One";
 import PageHead from "../Head";
-import Dashboard from "@/components/Instructor/Dashboard";
-import StudentDashboardHeader from "@/components/Student/StudentDashboardHeader";
-import StudentDashboardSidebar from "@/components/Student/StudentDashboardSidebar";
+import InstructorDashboardHeader from "@/components/Creator/InstructorDashboardHeader";
+import InstructorDashboardSidebar from "@/components/Creator/InstructorDashboardSidebar";
+import Dashboard from "@/components/Creator/Dashboard";
 
-const StudentDashboard = () => {
+const InstructorDashboard = () => {
   return (
     <>
-      <PageHead title="Student Dashboard - Online Courses & Education NEXTJS14 Template" />
+      <PageHead title="Instructor Dashboard - Online Courses & Education NEXTJS14 Template" />
       <Provider store={Store}>
         <Context>
           <MobileMenu />
@@ -25,11 +25,13 @@ const StudentDashboard = () => {
             <div className="container">
               <div className="row">
                 <div className="col-lg-12">
-                  <StudentDashboardHeader />
+                  <InstructorDashboardHeader />
+
                   <div className="row g-5">
                     <div className="col-lg-3">
-                      <StudentDashboardSidebar />
+                      <InstructorDashboardSidebar />
                     </div>
+
                     <div className="col-lg-9">
                       <Dashboard />
                     </div>
@@ -45,4 +47,4 @@ const StudentDashboard = () => {
   );
 };
 
-export default StudentDashboard;
+export default InstructorDashboard;

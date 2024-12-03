@@ -42,7 +42,7 @@ const HeaderSeven = ({
   }, []);
 
   const RightBtn = () => {
-    if (session !== undefined) {
+    if (session !== null) {
       if (session) {
         return <HeaderRightTwo userProfile={userProfile} />;
       } else {
@@ -52,6 +52,12 @@ const HeaderSeven = ({
           </Link>
         );
       }
+    } else {
+      return (
+        <Link href="/signup" className={`rbt-btn ${btnClass}`}>
+          <span data-text={`${btnText}`}>{btnText}</span>
+        </Link>
+      );
     }
   };
   return (
@@ -96,14 +102,6 @@ const HeaderSeven = ({
             <div className="rbt-main-navigation d-none d-xl-block">
               <Nav />
             </div>
-
-            {}
-
-            {/* <HeaderRightTwo
-              userType="Admin"
-              btnText="Enroll Now"
-              btnClass="rbt-marquee-btn marquee-auto btn-border-gradient radius-round btn-sm hover-transform-none"
-            /> */}
             <RightBtn />
           </div>
         </div>

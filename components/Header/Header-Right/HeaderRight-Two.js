@@ -1,39 +1,48 @@
 import Link from "next/link";
 import User from "../Offcanvas/User";
 import { useAppContext } from "@/context/Context";
+import { AccountType } from "@/public/constants";
 
-const HeaderRightTwo = () => {
-  const { mobile, setMobile, userProfile } = useAppContext();
+const HeaderRightTwo = ({ userProfile }) => {
+  const { mobile, setMobile } = useAppContext();
   return (
-    <div className="header-right">
-      <ul className="quick-access">
-        <li className="account-access rbt-user-wrapper d-none d-xl-block">
-          <Link href="#">
-            <i className="feather-user"></i>
-            {userProfile?.display_name || "Admin"}
-          </Link>
-          <User />
-        </li>
+    userProfile && (
+      <div className="header-right">
+        <ul className="quick-access">
+          <li className="account-access rbt-user-wrapper d-none d-xl-block">
+            <Link
+              href={
+                userProfile?.account_type === AccountType.USER
+                  ? "/user/profile"
+                  : "/creator/profile"
+              }
+            >
+              <i className="feather-user"></i>
+              {userProfile?.display_name}
+            </Link>
+            <User />
+          </li>
 
-        <li className="access-icon rbt-user-wrapper d-block d-xl-none">
-          <Link className="rbt-round-btn" href="#">
-            <i className="feather-user"></i>
-          </Link>
-          <User />
-        </li>
-      </ul>
+          <li className="access-icon rbt-user-wrapper d-block d-xl-none">
+            <Link className="rbt-round-btn" href="#">
+              <i className="feather-user"></i>
+            </Link>
+            <User />
+          </li>
+        </ul>
 
-      <div className="mobile-menu-bar d-block d-xl-none">
-        <div className="hamberger">
-          <button
-            className="hamberger-button rbt-round-btn"
-            onClick={() => setMobile(!mobile)}
-          >
-            <i className="feather-menu"></i>
-          </button>
+        <div className="mobile-menu-bar d-block d-xl-none">
+          <div className="hamberger">
+            <button
+              className="hamberger-button rbt-round-btn"
+              onClick={() => setMobile(!mobile)}
+            >
+              <i className="feather-menu"></i>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    )
   );
 };
 

@@ -1,10 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
-
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCards, Pagination, Autoplay } from "swiper/modules";
-
-import MainDemoData from "../../data/course-details/courseData.json";
+import { Pagination, Autoplay } from "swiper/modules";
 
 const courseDetails = [
   {
@@ -33,7 +28,7 @@ const HomeCourses = ({ start, end }) => {
   return (
     <>
       <Swiper
-        className="swiper-wrapper"
+        className="swiper-wrapper course-swiper"
         effect={"cards"}
         modules={[Pagination, Autoplay]}
         grabCursor={true}
@@ -44,70 +39,21 @@ const HomeCourses = ({ start, end }) => {
         direction={"vertical"}
         loop={true}
         spaceBetween={0}
-        style={{
-          height: 650,
-          // width: 450,
-          marginTop: 90,
-        }}
       >
-        {MainDemoData &&
-          courseDetails.slice(0, 4).map((data, index) => (
+        {courseDetails &&
+          courseDetails.slice(start, end).map((data, index) => (
             <SwiperSlide className="swiper-slide" key={index}>
-              <div
-                style={{
-                  position: "relative",
-                  // width: 300,
-                }}
-                id={`course-${data.id}`}
-              >
+              <div className="course-card" id={`course-${data.id}`}>
                 <video
-                  // src="https://www.w3schools.com/html/mov_bbb.mp4"
                   src={data.video}
                   autoPlay
                   loop
                   muted
-                  style={{
-                    width: 350,
-                    height: 600,
-                    objectFit: "fill",
-                    padding: 5,
-                    backgroundColor: "#9fb6fc",
-                    borderRadius: 8,
-                  }}
-                ></video>
-                {/* Overlay Content */}
-                <div
-                  style={{
-                    position: "absolute",
-                    bottom: 20,
-                    display: "flex",
-                    justifyContent: "space-around",
-                    width: "350px",
-                  }}
-                >
-                  <div
-                    style={{
-                      color: "white",
-                      backgroundColor: "rgba(0, 0, 0, 0.7)",
-                      padding: "5px 10px",
-                      borderRadius: "5px",
-                    }}
-                  >
-                    {/* Yassine - {index + 1} */}
-                    {data.creatorName}
-                  </div>
-                  <button
-                    style={{
-                      backgroundColor: "#007bff",
-                      color: "white",
-                      border: "none",
-                      padding: "5px 15px",
-                      borderRadius: "5px",
-                      cursor: "pointer",
-                    }}
-                  >
-                    Learn More
-                  </button>
+                  className="course-video"
+                />
+                <div className="course-overlay">
+                  <div className="creator-name">{data.creatorName}</div>
+                  <button className="learn-more-btn">Learn More</button>
                 </div>
               </div>
             </SwiperSlide>

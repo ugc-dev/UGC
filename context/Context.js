@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useMemo,
+} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { supabase } from "@/supabase/supabaseClient";
 
@@ -23,7 +29,7 @@ const Context = ({ children }) => {
   const [isLightTheme, setLightTheme] = useState(true);
 
   const [isLogin, setLogin] = useState(false);
-  const [session, setSession] = useState(undefined);
+  const [session, setSession] = useState(null);
   const [userProfile, setUserProfile] = useState(null);
 
   useEffect(() => {

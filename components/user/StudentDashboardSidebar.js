@@ -1,10 +1,10 @@
-
 import { useRouter } from "next/router";
 import SidebarData from "../../data/dashboard/student/siderbar.json";
+import Link from "next/link";
 
 const StudentDashboardSidebar = () => {
-    const router = useRouter();
-    const path = router.pathname;
+  const router = useRouter();
+  const path = router.pathname;
   return (
     <>
       <div className="rbt-default-sidebar sticky-top rbt-shadow-box rbt-gradient-border">
@@ -19,13 +19,13 @@ const StudentDashboardSidebar = () => {
                   {SidebarData &&
                     SidebarData.siderbar.slice(0, 7).map((data, index) => (
                       <li className="nav-item" key={index} role="presentation">
-                        <a
+                        <Link
                           className={`${path === data.link ? "active" : ""}`}
                           href={data.link}
                         >
                           <i className={data.icon} />
                           <span>{data.text}</span>
-                        </a>
+                        </Link>
                       </li>
                     ))}
                 </ul>

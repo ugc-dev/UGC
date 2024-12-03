@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   productionBrowserSourceMaps: true,
+  images: {
+    domains: ["pcbgalzjobivhyladcqi.supabase.co"],
+  },
 };
 
-module.exports = nextConfig
+module.exports = nextConfig;

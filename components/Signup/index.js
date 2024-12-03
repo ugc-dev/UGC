@@ -2,11 +2,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { supabase } from "@/supabase/supabaseClient";
 import Link from "next/link";
-
-const AccountType = {
-  USER: 1,
-  CREATOR: 2,
-};
+import { AccountType } from "@/public/constants";
 
 const Signup = () => {
   const [email, setEmail] = useState("");

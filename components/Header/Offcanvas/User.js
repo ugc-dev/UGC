@@ -1,13 +1,15 @@
 import Image from "next/image";
-
-import UserData from "../../../data/user.json";
-import StudentData from "../../../data/student.json";
 import Link from "next/link";
 import { useAppContext } from "@/context/Context";
+import { AccountType } from "@/public/constants";
+
+import CreatorData from "../../../data/user.json";
+import UserData from "../../../data/student.json";
 
 const User = () => {
   const { handleLogout, userProfile } = useAppContext();
-  const DataToMap = userProfile?.account_type === 1 ? StudentData : UserData;
+  const DataToMap =
+    userProfile?.account_type === AccountType.USER ? UserData : CreatorData;
   return (
     <div className="rbt-user-menu-list-wrapper">
       {DataToMap &&
@@ -23,12 +25,14 @@ const User = () => {
                 />
               </div>
               <div className="admin-info">
-                <span className="name">
-                  {userProfile?.display_name || "Admin"}
-                </span>
+                <span className="name">{userProfile?.display_name}</span>
                 <Link
                   className="rbt-btn-link color-primary"
-                  href="/instructor/instructor-profile"
+                  href={
+                    userProfile?.account_type === AccountType.USER
+                      ? "/user/profile"
+                      : "/creator/profile"
+                  }
                 >
                   View Profile
                 </Link>

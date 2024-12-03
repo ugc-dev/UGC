@@ -5,15 +5,12 @@ import Store from "@/redux/store";
 import MobileMenu from "@/components/Header/MobileMenu";
 import HeaderStyle from "@/components/Header/HeaderStyle";
 import FooterOne from "@/components/Footer/Footer-One";
-import PageHead from "../Head";
-import InstructorDashboardHeader from "@/components/Instructor/InstructorDashboardHeader";
-import InstructorDashboardSidebar from "@/components/Instructor/InstructorDashboardSidebar";
-import Dashboard from "@/components/Instructor/Dashboard";
+import InstructorDashboardHeader from "@/components/Creator/InstructorDashboardHeader";
+import InstructorDashboardSidebar from "@/components/Creator/InstructorDashboardSidebar";
 
-const InstructorDashboard = () => {
+const CreatorLayout = ({ children }) => {
   return (
     <>
-      <PageHead title="Instructor Dashboard - Online Courses & Education NEXTJS14 Template" />
       <Provider store={Store}>
         <Context>
           <MobileMenu />
@@ -26,15 +23,11 @@ const InstructorDashboard = () => {
               <div className="row">
                 <div className="col-lg-12">
                   <InstructorDashboardHeader />
-
                   <div className="row g-5">
                     <div className="col-lg-3">
                       <InstructorDashboardSidebar />
                     </div>
-
-                    <div className="col-lg-9">
-                      <Dashboard />
-                    </div>
+                    <div className="col-lg-9">{children}</div>
                   </div>
                 </div>
               </div>
@@ -47,4 +40,4 @@ const InstructorDashboard = () => {
   );
 };
 
-export default InstructorDashboard;
+export default CreatorLayout;
