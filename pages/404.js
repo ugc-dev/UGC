@@ -7,17 +7,15 @@ import { Provider } from "react-redux";
 import Separator from "@/components/Common/Separator";
 import NotFound from "@/components/NotFound/NotFound";
 import FooterOne from "@/components/Footer/Footer-One";
-import HeaderStyleNine from "@/components/Header/HeaderStyle-Nine";
+import HeaderStyle from "@/components/Header/HeaderStyle";
 
 const ErrorPage = () => {
   return (
     <Provider store={Store}>
       <Context>
         <PageHead title="Page not found - Online Courses & Education NEXTJS14 Template" />
-        <HeaderStyleNine headerSticky="rbt-sticky" headerType="" />
-
+        <HeaderStyle headerSticky="rbt-sticky" headerType="" />
         <NotFound />
-
         <Separator />
         <FooterOne />
       </Context>

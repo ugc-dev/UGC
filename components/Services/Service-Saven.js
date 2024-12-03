@@ -7,7 +7,7 @@ const ServiceSaven = ({ head }) => {
   return (
     <>
       {ServiceData &&
-        ServiceData.serviceSaven.map((data, index) => (
+        ServiceData.serviceSeven.map((data, index) => (
           <div className="container" key={index}>
             {head === undefined ? (
               <div className="row mb--60">

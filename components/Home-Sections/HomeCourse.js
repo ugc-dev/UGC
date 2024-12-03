@@ -1,88 +1,59 @@
-import Image from "next/image";
-import Link from "next/link";
-
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCards, Pagination, Autoplay } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 
-import MainDemoData from "../../data/course-details/courseData.json";
+const courseDetails = [
+  {
+    id: 1,
+    video: "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
+    creatorName: "John Doe",
+  },
+  {
+    id: 2,
+    video: "https://samplelib.com/lib/preview/mp4/sample-10s.mp4",
+    creatorName: "Jane Smith",
+  },
+  {
+    id: 3,
+    video: "https://samplelib.com/lib/preview/mp4/sample-15s.mp4",
+    creatorName: "Ali Khan",
+  },
+  {
+    id: 4,
+    video: "https://samplelib.com/lib/preview/mp4/sample-20s.mp4",
+    creatorName: "Maria Garcia",
+  },
+];
 
 const HomeCourses = ({ start, end }) => {
   return (
     <>
       <Swiper
-        className="swiper-wrapper"
+        className="swiper-wrapper course-swiper"
         effect={"cards"}
-        modules={[EffectCards, Pagination, Autoplay]}
+        modules={[Pagination, Autoplay]}
         grabCursor={true}
-        pagination={{
-          el: ".rbt-swiper-pagination",
-          clickable: true,
-        }}
         autoplay={{
           delay: 3000,
           disableOnInteraction: false,
         }}
+        direction={"vertical"}
+        loop={true}
+        spaceBetween={0}
       >
-        {MainDemoData &&
-          MainDemoData.courseDetails.slice(start, end).map((data, index) => (
+        {courseDetails &&
+          courseDetails.slice(start, end).map((data, index) => (
             <SwiperSlide className="swiper-slide" key={index}>
-              <div className="rbt-card variation-01 rbt-hover">
-                <div className="rbt-card-img">
-                  <Link href={`/course-details/${data.id}`}>
-                    <Image
-                      src={data.courseImg}
-                      width={710}
-                      height={488}
-                      alt="Card image"
-                    />
-                    <div className="rbt-badge-3 bg-white">
-                      <span>-{data.discount}%</span>
-                      <span>Off</span>
-                    </div>
-                  </Link>
-                </div>
-                <div className="rbt-card-body">
-                  <ul className="rbt-meta">
-                    <li>
-                      <i className="feather-book"></i>
-                      {data.lesson} Lessons
-                    </li>
-                    <li>
-                      <i className="feather-users"></i>
-                      {data.student} Students
-                    </li>
-                  </ul>
-                  <h4 className="rbt-card-title">
-                    <Link href={`/course-details/${data.id}`}>
-                      {data.courseTitle}
-                    </Link>
-                  </h4>
-                  <p className="rbt-card-text">{data.desc.substring(0, 100)}</p>
-                  <div className="rbt-review">
-                    <div className="rating">
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                    </div>
-                    <span className="rating-count">
-                      ({data.review} Reviews)
-                    </span>
-                  </div>
-                  <div className="rbt-card-bottom">
-                    <div className="rbt-price">
-                      <span className="current-price">${data.price}</span>
-                      <span className="off-price">${data.offPrice}</span>
-                    </div>
-                    <Link
-                      className="rbt-btn-link"
-                      href={`/course-details/${data.id}`}
-                    >
-                      Learn More
-                      <i className="feather-arrow-right"></i>
-                    </Link>
-                  </div>
+              <div className="course-card" id={`course-${data.id}`}>
+                <video
+                  src={data.video}
+                  autoPlay
+                  loop
+                  muted
+                  className="course-video"
+                />
+                <div className="course-overlay">
+                  <div className="creator-name">{data.creatorName}</div>
+                  <button className="learn-more-btn">Learn More</button>
                 </div>
               </div>
             </SwiperSlide>

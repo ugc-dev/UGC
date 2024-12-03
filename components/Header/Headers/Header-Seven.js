@@ -1,29 +1,33 @@
-import Image from "next/image";
-import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+
+import HeaderRightTwo from "../Header-Right/HeaderRight-Two";
+import Search from "../Offcanvas/Search";
+import Category from "../Category/Category";
+import Nav from "../Nav";
 
 import logo from "../../../public/images/logo/logo.png";
 import logoLight from "../../../public/images/dark/logo/logo-light.png";
-
-import Nav from "../Nav";
-import Category from "../Category/Category";
 import { useAppContext } from "@/context/Context";
 
 const HeaderSeven = ({
+  headerType,
   gapSpaceBetween,
-  transparent,
+  sticky,
+  headerSticky,
   navigationEnd,
+  container,
   btnClass,
   btnText,
-  headerType,
 }) => {
-  const { mobile, setMobile, isLightTheme } = useAppContext();
   const [isSticky, setIsSticky] = useState(false);
+  const { isLightTheme, session, userProfile } = useAppContext();
 
   useEffect(() => {
     const handleScroll = () => {
       const scrolled = window.scrollY;
-      if (scrolled > 180) {
+      if (scrolled > 0) {
         setIsSticky(true);
       } else {
         setIsSticky(false);
@@ -36,14 +40,34 @@ const HeaderSeven = ({
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const RightBtn = () => {
+    if (session !== null) {
+      if (session) {
+        return <HeaderRightTwo userProfile={userProfile} />;
+      } else {
+        return (
+          <Link href="/signup" className={`rbt-btn ${btnClass}`}>
+            <span data-text={`${btnText}`}>{btnText}</span>
+          </Link>
+        );
+      }
+    } else {
+      return (
+        <Link href="/signup" className={`rbt-btn ${btnClass}`}>
+          <span data-text={`${btnText}`}>{btnText}</span>
+        </Link>
+      );
+    }
+  };
   return (
     <>
       <div
-        className={`rbt-header-wrapper ${gapSpaceBetween} ${transparent} ${
-          !headerType && isSticky ? "rbt-sticky" : ""
+        className={`rbt-header-wrapper ${gapSpaceBetween} ${sticky}  ${
+          !headerType && isSticky ? `${headerSticky}` : ""
         }`}
       >
-        <div className="container">
+        <div className={`${container}`}>
           <div className={`mainbar-row ${navigationEnd} align-items-center`}>
             <div className="header-left rbt-header-content">
               <div className="header-info">
@@ -69,6 +93,7 @@ const HeaderSeven = ({
                   </Link>
                 </div>
               </div>
+
               <div className="header-info d-none d-lg-block">
                 <Category />
               </div>
@@ -77,26 +102,10 @@ const HeaderSeven = ({
             <div className="rbt-main-navigation d-none d-xl-block">
               <Nav />
             </div>
-            <div className="header-right">
-              <div className="rbt-btn-wrapper d-none d-xl-block">
-                <Link className={`rbt-btn ${btnClass}`} href="#">
-                  <span data-text={`${btnText}`}>{btnText}</span>
-                </Link>
-              </div>
-
-              <div className="mobile-menu-bar d-block d-xl-none">
-                <div className="hamberger">
-                  <button
-                    className="hamberger-button rbt-round-btn"
-                    onClick={() => setMobile(!mobile)}
-                  >
-                    <i className="feather-menu"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
+            <RightBtn />
           </div>
         </div>
+        <Search />
       </div>
     </>
   );

@@ -1,11 +1,11 @@
 {
   "serviceOne": [
     {
-      "sectionTitle": "Style One.",
+      "sectionTitle": "Why Choose Us",
       "body": [
         {
-          "title": "Best Coaching",
-          "desc": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima error reiciendis.",
+          "title": "Secure Payments",
+          "desc": "We ensure that payments are securely held until brands approve the content, protecting both creators and brands.",
           "img": "/images/icons/card-icon-1.png",
           "bgOne": true,
           "bgTwo": false,
@@ -13,8 +13,8 @@
           "bgFour": false
         },
         {
-          "title": "Convenient practice",
-          "desc": "Convenient practice dolor sit adipisicing elit. Minima error reiciendis.",
+          "title": "Payment Guarantee",
+          "desc": "Brands have 2 days to validate the delivery. If not, the payment is automatically transferred to the creator, avoiding disputes.",
           "img": "/images/icons/card-icon-2.png",
           "bgTwo": true,
           "bgOne": false,
@@ -22,8 +22,8 @@
           "bgFour": false
         },
         {
-          "title": "Video Lecture",
-          "desc": "Video Lecture sit, amet consectetur adipisicing elit. Minima error reiciendis..",
+          "title": "Hassle-Free Process",
+          "desc": "From finding creators to finalizing payments, everything is managed on one platform for a smooth experience.",
           "img": "/images/icons/card-icon-3.png",
           "bgThree": true,
           "bgOne": false,
@@ -31,8 +31,8 @@
           "bgFour": false
         },
         {
-          "title": "Live Class",
-          "desc": "Live Class dolor sit, amet consectetur adipisicing elit. Minima error reiciendis.",
+          "title": "Authentic Connections",
+          "desc": "We connect brands with creators who bring unique, authentic content that builds trust and engagement.",
           "img": "/images/icons/card-icon-4.png",
           "bgFour": true,
           "bgOne": false,
@@ -224,15 +224,15 @@
       ]
     }
   ],
-  "serviceSaven": [
+  "serviceSeven": [
     {
-      "sectionTitle": "Style Seven.",
-      "title": "What will you learn after the course?.",
-      "desc": "There are many variations of passages of the Ipsum available.",
+      "sectionTitle": "How Our Platform Works",
+      "title": "Collaborate Seamlessly with UGC Creators",
+      "desc": "Our step-by-step process makes it easy for brands and creators to connect and collaborate on authentic, impactful content.",
       "body": [
         {
-          "title": "English Learning",
-          "desc": "English Learning looking for random paragraphs, you've come to the right place. When a random.",
+          "title": "Find Your Perfect Creator",
+          "desc": "Use advanced filters to browse UGC creators based on gender, age, language, and more to match your brand’s needs.",
           "img": "/images/shape/service-01.png",
           "bgOne": true,
           "bgTwo": false,
@@ -241,44 +241,44 @@
           "bgFive": false
         },
         {
-          "title": "Javascript Learning",
-          "desc": "Javascript Learning looking for random paragraphs, you've come to the right place. When a random.",
-          "img": "/images/shape/service-04.png",
-          "bgTwo": true,
-          "bgOne": false,
-          "bgThree": false,
-          "bgFour": false,
-          "bgFive": false
-        },
-        {
-          "title": "Angular Learning",
-          "desc": "Angular Learning looking for random paragraphs, you've come to the right place. When a random.",
-          "img": "/images/shape/service-03.png",
-          "bgThree": true,
-          "bgOne": false,
-          "bgTwo": false,
-          "bgFour": false,
-          "bgFive": false
-        },
-        {
-          "title": "Php Learning",
-          "desc": "Php Learning looking for random paragraphs, you've come to the right place. When a random.",
+          "title": "Chat and Negotiate",
+          "desc": "Contact creators via our secure platform chat to discuss terms, share details, and finalize collaborations.",
           "img": "/images/shape/service-02.png",
-          "bgFour": true,
           "bgOne": false,
-          "bgTwo": false,
+          "bgTwo": true,
           "bgThree": false,
+          "bgFour": false,
           "bgFive": false
         },
         {
-          "title": "Spoken English",
-          "desc": "Spoken english looking for random paragraphs, you've come to the right place. When a random word.",
-          "img": "/images/shape/service-05.png",
-          "bgFive": true,
+          "title": "Select, Pay, and Collaborate",
+          "desc": "Pick the best offer, pay securely, and manage the collaboration effortlessly through our platform.",
+          "img": "/images/shape/service-03.png",
+          "bgOne": false,
+          "bgTwo": false,
+          "bgThree": true,
+          "bgFour": false,
+          "bgFive": false
+        },
+        {
+          "title": "Secure Payments",
+          "desc": "We ensure payments are held securely until the content delivery meets your expectations.",
+          "img": "/images/shape/service-04.png",
           "bgOne": false,
           "bgTwo": false,
           "bgThree": false,
-          "bgFour": false
+          "bgFour": true,
+          "bgFive": false
+        },
+        {
+          "title": "Hassle-Free Collaboration",
+          "desc": "All processes are centralized, ensuring a smooth and efficient experience from start to finish.",
+          "img": "/images/shape/service-05.png",
+          "bgOne": false,
+          "bgTwo": false,
+          "bgThree": false,
+          "bgFour": false,
+          "bgFive": true
         }
       ]
     }
